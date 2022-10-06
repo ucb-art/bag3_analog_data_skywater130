@@ -1,0 +1,25 @@
+# A single resistor unit, wrapped
+lay_class: xbase.layout.array.top.ArrayBaseWrapper
+impl_lib: AAA_RES_ONLY
+impl_cell: AA_RES_ONLY
+root_dir: gen_outputs/res_only
+
+params:
+  cls_name: bag3_analog.layout.res.termination.Termination
+  params:
+    pinfo:
+      unit_specs:
+        params:
+          res_type: standard
+          w: 600
+          l: 800
+      wire_specs: {}
+      tr_widths:
+        sup: {3: 2}
+      tr_spaces: {}
+      top_layer: 3
+      nx: 2
+      ny: 2
+    export_mid: False
+    nx_dum: 0
+    ny_dum: 0

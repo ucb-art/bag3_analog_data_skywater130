@@ -1,0 +1,19 @@
+gen_specs_file: data/bag3_analog/specs_blk/termination/gen.yaml
+
+meas_class: bag3_testbenches.measurement.char.CharSPMeas
+meas_name: char
+
+meas_params:
+  sim_envs: ['tt_25']
+  tbm_specs:
+    sp_meas:
+      sweep_options:
+        type: LOG
+        start: 0.1e9
+        stop: 200.0e9
+        num: 1000
+      sim_params: {vdd: 1.0}
+    dut_plus: PLUS
+    dut_minus: MINUS
+    extracted: True
+  passive_type: res

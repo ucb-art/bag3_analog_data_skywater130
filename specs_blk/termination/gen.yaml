@@ -1,0 +1,30 @@
+# 50 Ohm termination, with dummies
+# Sizing chosen to meet DRC and be "large". For EM details, see PDK user guide.s
+dut_class: bag3_analog.layout.res.termination.Termination
+impl_lib: AAA_TERMINATION
+impl_cell: TERMINATION
+root_dir: gen_outputs/termination
+
+params:
+  tr_widths: &tr_widths
+    sig: {2: 2, 3: 2}
+    sup: {2: 2, 3: 2}
+  tr_spaces: &tr_spaces
+    !!python/tuple ['sup', '']: {}
+    !!python/tuple ['sig', '']: {}
+  pinfo:
+    unit_specs:
+      params:
+        res_type: standard
+        w: 532
+        l: 714
+    wire_specs: {}
+    tr_widths: *tr_widths
+    tr_spaces: *tr_spaces
+    top_layer: 3
+    nx: 14
+    ny: 3   # single ended
+  nx_dum: 1
+  ny_dum: 1
+  export_mid: False   # single ended
+  port_layer: 3

@@ -11,14 +11,14 @@ params:
       unit_specs:
         params:
           res_type: standard
-          w: 600
+          w: 102
           l: 800
       wire_specs: {}
       tr_widths:
         sup: {3: 2}
       tr_spaces: {}
       top_layer: 3
-      nx: 2
+      nx: 3
       ny: 2
     export_mid: False
     nx_dum: 0

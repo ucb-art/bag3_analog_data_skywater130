@@ -1,0 +1,69 @@
+dut_class: bag3_analog.layout.rdac.RDAC
+impl_lib: AAA_RDAC_6b_1dec
+impl_cell: AA_rdac_6b_1dec
+root_dir: gen_outputs/rdac
+
+params:
+  tr_widths: &tr_widths
+    sup: {2: 2, 3: 2, 4: 5, 5: 1}
+    sig: {2: 1, 3: 1, 4: 2}
+  tr_spaces: &tr_spaces
+    !!python/tuple ['sup', '']: {2: 1, 3: 1, 4: 1, 5: 1}
+    !!python/tuple ['sig', '']: {2: 0, 3: 0, 4: 0, 5: 0}
+
+  dec_params:
+    seg_dict:
+      and:
+        nand: 2
+        nor: 2
+        inv: 2
+      inv: 2
+      pg: 2
+    num_sel_col: 3
+    num_sel_row: 3
+
+    pinfo:
+      lch: 30
+      top_layer: 3
+      min_height: 1720  # Match resistor height
+      options:
+        same_col_sub: True
+      row_specs:
+        - mos_type: nch
+          width: 84
+          threshold: standard
+          bot_wires:
+            data: ['sup', 'sig<0:1>']
+            shared: ['sup']
+          top_wires: ['sig<0:1>']
+          flip: True
+        - mos_type: pch
+          width: 110
+          threshold: standard
+          bot_wires: ['sig<0:1>']
+          top_wires:
+            data: ['sig<0:1>', 'sup']
+            shared: ['sup']
+      tr_widths: *tr_widths
+      tr_spaces: *tr_spaces
+  num_dec: 1
+
+  res_params:
+    pinfo:
+      unit_specs:
+        params:
+          res_type: standard
+          w: 360
+          l: 614
+      wire_specs: {}
+      tr_widths:
+        sup: {3: 2}
+      tr_spaces: {}
+      top_layer: 3
+      nx: 10
+      ny: 10
+    export_mid: False
+    nx_dum: 1
+    ny_dum: 1
+
+  top_layer: 5

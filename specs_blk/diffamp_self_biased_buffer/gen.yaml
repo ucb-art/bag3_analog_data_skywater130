@@ -1,0 +1,62 @@
+impl_lib: AAA_DIFFAMP_SELF_BIASED_BUFFER
+impl_cell: AA_diffamp_self_biased_buffer
+root_dir: gen_outputs/diffamp_self_biased_buffer
+dut_class: xbase.layout.mos.top.GenericWrapper
+
+params:
+  cls_name: bag3_analog.layout.amplifier.diffamp.DiffAmpSelfBiasedBuffer
+  params:
+    seg_dict:
+      tail_p: 8
+      gm_p: 6
+      gm_n: 6
+      tail_n: 8
+    segp_list: [4, 7]
+    segn_list: [4, 7]
+    draw_taps: BOTH
+    pinfo:
+      lch: 30
+      top_layer: 3
+      row_specs:
+        - mos_type: nch
+          width: 84
+          threshold: standard
+          bot_wires:
+            data: [sup, sig_in]
+            shared: [sup]
+          top_wires: [sig_in]
+          flip: True
+        - mos_type: nch
+          width: 84
+          threshold: standard
+          bot_wires:
+            - [['sig<0:1>', 'DS_MATCH']]
+          top_wires:
+            data:
+              - [['sig<0:1>', 'G']]
+              - [['sig_in<0:1>', 'G_MATCH']]
+          flip: True
+        - mos_type: pch
+          width: 110
+          threshold: standard
+          bot_wires:
+            data:
+              - [['sig_in<0:1>', 'G_MATCH']]
+              - [['sig<0:1>', 'G']]
+          top_wires:
+            - [['sig<0:1>', 'DS_MATCH']]
+        - mos_type: pch
+          width: 110
+          threshold: standard
+          bot_wires: [sig_in]
+          top_wires:
+            data: [sig_in, sup]
+            shared: [sup]
+      tr_widths:
+        sup: {1: 2, 2: 2, 3: 2}
+        sig: {1: 1, 2: 2, 3: 2}
+        sig_in: {1: 1, 2: 2, 3: 2}
+      tr_spaces:
+        !!python/tuple ['sup', '']: {1: 0, 2: 0, 3: 1}
+        !!python/tuple ['sig', '']: {1: 0, 2: 0, 3: 0}
+        !!python/tuple ['sig_in', '']: {1: 0, 2: 0, 3: 0}

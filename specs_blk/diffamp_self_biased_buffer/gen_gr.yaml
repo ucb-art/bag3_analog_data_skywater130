@@ -27,7 +27,7 @@ params:
           top_layer: 3
           tr_widths:
             sup: {1: 2, 2: 2, 3: 2}
-            guard: {1: 2, 2: 2, 3: 2}
+            guard: {1: 1, 2: 2, 3: 2}
             sig: {1: 1, 2: 2, 3: 2}
             sig_in: {1: 1, 2: 2, 3: 2}
           tr_spaces:
